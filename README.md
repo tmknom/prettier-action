@@ -1,1 +1,1 @@
-# prettier-action
+# Prettier for GitHub Actions
