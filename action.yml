@@ -3,11 +3,9 @@ description: Format code with Prettier.
 
 inputs:
   parser:
-    default: ""
     required: true
     description: "Which parser to use."
   paths:
-    default: "."
     required: true
     description: "Paths to format target: [file/dir/glob ...]"
 
