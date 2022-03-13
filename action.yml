@@ -1,0 +1,39 @@
+name: Prettier
+description: Format code with Prettier.
+
+inputs:
+  parser:
+    default: ""
+    required: true
+    description: "Which parser to use."
+  paths:
+    default: "."
+    required: true
+    description: "Paths to format target: [file/dir/glob ...]"
+
+runs:
+  using: composite
+
+  steps:
+    - name: Install
+      shell: bash
+      run: |
+        sudo npm install -g prettier
+
+    - name: Display version
+      shell: bash
+      run: |
+        prettier --version
+
+    - name: Run prettier
+      shell: bash
+      env:
+        PARSER: ${{ inputs.parser }}
+        PATHS: ${{ inputs.paths }}
+      run: |
+        prettier --parser="${PARSER}" --check "${PATHS}"
+
+# https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#branding
+branding:
+  icon: "align-left"
+  color: "green"
