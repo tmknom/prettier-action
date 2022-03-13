@@ -28,6 +28,10 @@ jobs:
         uses: ./
         with:
           parser: "yaml"
+      - name: Test default paths with not supported parser
+        uses: ./
+        with:
+          parser: "json"
       - name: Test valid markdown
         uses: ./
         with:
