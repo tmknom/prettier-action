@@ -20,6 +20,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Test default paths with markdown
+        uses: ./
+        with:
+          parser: "markdown"
       - name: Test valid markdown
         uses: ./
         with:
