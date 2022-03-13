@@ -2,6 +2,11 @@
 
 Format code with Prettier.
 
+## Description
+
+[Prettier](https://github.com/prettier/prettier) is an opinionated code formatter.
+This action allows you to run prettier command simply.
+
 ## Usage
 
 ```yaml
@@ -11,11 +16,6 @@ Format code with Prettier.
       parser: "markdown"
       paths: "README.md"
 ```
-
-## Description
-
-[Prettier](https://github.com/prettier/prettier) is an opinionated code formatter.
-This action allows you to run prettier command simply.
 
 ## License
 
