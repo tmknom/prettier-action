@@ -6,7 +6,7 @@ inputs:
     required: true
     description: "Which parser to use."
   paths:
-    required: true
+    required: false
     description: "Paths to format target: [file/dir/glob ...]"
 
 runs:
@@ -23,11 +23,27 @@ runs:
       run: |
         prettier --version
 
+    - name: Create default paths from parser
+      shell: bash
+      id: default-paths
+      env:
+        PARSER: ${{ inputs.parser }}
+        PATHS: ${{ inputs.paths }}
+      run: |
+        if [[ "${PATHS}" != "" ]]; then
+          echo "::set-output name=paths::${PATHS}"
+          exit 0
+        fi
+        case "${PARSER}" in
+          "markdown" ) echo '::set-output name=paths::**/*.md' ;;
+          * ) echo '::set-output name=paths::.' ;;
+        esac
+
     - name: Run prettier
       shell: bash
       env:
         PARSER: ${{ inputs.parser }}
-        PATHS: ${{ inputs.paths }}
+        PATHS: ${{ steps.default-paths.outputs.paths }}
       run: |
         prettier --parser="${PARSER}" --check "${PATHS}"
 
