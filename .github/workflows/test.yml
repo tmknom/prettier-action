@@ -24,6 +24,10 @@ jobs:
         uses: ./
         with:
           parser: "markdown"
+      - name: Test default paths with yaml
+        uses: ./
+        with:
+          parser: "yaml"
       - name: Test valid markdown
         uses: ./
         with:
