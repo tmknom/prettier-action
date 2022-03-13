@@ -37,7 +37,7 @@ runs:
         case "${PARSER}" in
           "yaml" ) echo '::set-output name=paths::**/*.y*ml' ;;
           "markdown" ) echo '::set-output name=paths::**/*.md' ;;
-          * ) echo '::set-output name=paths::.' ;;
+          * ) echo 'error: undefined paths'; exit 1 ;;
         esac
 
     - name: Run prettier
