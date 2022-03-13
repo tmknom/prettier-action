@@ -11,7 +11,7 @@ This action allows you to run prettier command simply.
 
 ```yaml
 - name: Check formatting for markdown
-  uses: tmknom/prettier-action@v0.0.1
+  uses: tmknom/prettier-action@v0.1.0
     with:
       parser: "markdown"
       paths: "README.md"
