@@ -29,3 +29,8 @@ jobs:
         with:
           parser: "markdown"
           paths: "README.md"
+      - name: Test valid yaml
+        uses: ./
+        with:
+          parser: "yaml"
+          paths: "action.yml"
