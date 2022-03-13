@@ -37,9 +37,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install prettier
-        run: sudo npm install -g prettier
-      - name: Display prettier
-        run: prettier --version
-      - name: Run prettier
-        run: prettier --check --parser=yaml '**/*.y*ml'
+      - name: Prettier
+        uses: tmknom/prettier-action@v0.1.0
+        with:
+          parser: "yaml"
