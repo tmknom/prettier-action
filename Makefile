@@ -95,7 +95,7 @@ docs: ## update documents
 #
 # Release management
 #
-release: push-tag create-release ## release
+release: push-tag ## release
 
 push-tag:
 	version="v$$(cat VERSION)" && \
