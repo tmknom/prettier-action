@@ -8,20 +8,44 @@ inputs:
   paths:
     required: false
     description: "Paths to format target: [file/dir/glob ...]"
+  prettier-version:
+    default: "2.5.1"
+    required: false
+    description: "The Prettier version."
 
 runs:
   using: composite
 
   steps:
+    - name: Create cache parameter
+      shell: bash
+      id: cache-param
+      env:
+        RUNNER_OS: ${{ runner.os }}
+        RUNNER_ARCH: ${{ runner.arch }}
+        PRETTIER_VERSION: ${{ inputs.prettier-version }}
+      run: |
+        cache_key="${RUNNER_OS}-${RUNNER_ARCH}-node-$(node --version)-$(date "+%Y-%m")-version-${PRETTIER_VERSION}"
+        echo "::set-output name=cache-key::${cache_key}"
+        echo "::set-output name=cache-dir::$(npm config get cache)"
+
+    - name: Cache
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.cache-param.outputs.cache-dir }}
+        key: ${{ steps.cache-param.outputs.cache-key }}
+
     - name: Install
       shell: bash
+      env:
+        PRETTIER_VERSION: ${{ inputs.prettier-version }}
       run: |
-        sudo npm install -g prettier
+        npm install prettier@"${PRETTIER_VERSION}"
 
     - name: Display version
       shell: bash
       run: |
-        prettier --version
+        node_modules/.bin/prettier --version
 
     - name: Create default paths from parser
       shell: bash
@@ -46,7 +70,7 @@ runs:
         PARSER: ${{ inputs.parser }}
         PATHS: ${{ steps.default-paths.outputs.paths }}
       run: |
-        prettier --parser="${PARSER}" --check "${PATHS}"
+        node_modules/.bin/prettier --parser="${PARSER}" --check "${PATHS}"
 
 # https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#branding
 branding:
