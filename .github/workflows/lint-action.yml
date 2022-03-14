@@ -1,8 +1,6 @@
 name: Lint Action
 on:
-  push:
-    branches:
-      - lint-action
+  workflow_dispatch:
   pull_request:
     paths:
       - ".github/workflows/**.yml"
