@@ -1,8 +1,8 @@
 name: Test
 on:
   push:
-    branches:
-      - test-composite-action
+    paths:
+      - ".github/workflows/test.yml"
   pull_request:
     paths:
       - "action.yml"
