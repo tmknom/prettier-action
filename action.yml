@@ -5,9 +5,9 @@ inputs:
   parser:
     required: true
     description: "Which parser to use."
-  paths:
+  filepath:
     required: false
-    description: "Paths to format target: [file/dir/glob ...]"
+    description: "Filepath to check target: [file|dir|glob]"
   prettier-version:
     default: "2.5.1"
     required: false
@@ -47,30 +47,30 @@ runs:
       run: |
         node_modules/.bin/prettier --version
 
-    - name: Create default paths from parser
+    - name: Create default filepath from parser
       shell: bash
-      id: default-paths
+      id: default-filepath
       env:
         PARSER: ${{ inputs.parser }}
-        PATHS: ${{ inputs.paths }}
+        FILEPATH: ${{ inputs.filepath }}
       run: |
-        if [[ "${PATHS}" != "" ]]; then
-          echo "::set-output name=paths::${PATHS}"
+        if [[ "${FILEPATH}" != "" ]]; then
+          echo "::set-output name=filepath::${FILEPATH}"
           exit 0
         fi
         case "${PARSER}" in
-          "yaml" ) echo '::set-output name=paths::**/*.y*ml' ;;
-          "markdown" ) echo '::set-output name=paths::**/*.md' ;;
-          * ) echo 'error: undefined paths'; exit 1 ;;
+          "yaml" ) echo '::set-output name=filepath::**/*.y*ml' ;;
+          "markdown" ) echo '::set-output name=filepath::**/*.md' ;;
+          * ) echo 'error: undefined filepath'; exit 1 ;;
         esac
 
     - name: Run prettier
       shell: bash
       env:
         PARSER: ${{ inputs.parser }}
-        PATHS: ${{ steps.default-paths.outputs.paths }}
+        FILEPATH: ${{ steps.default-filepath.outputs.filepath }}
       run: |
-        node_modules/.bin/prettier --parser="${PARSER}" --check "${PATHS}"
+        node_modules/.bin/prettier --parser="${PARSER}" --check "${FILEPATH}"
 
 # https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#branding
 branding:
