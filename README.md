@@ -11,7 +11,7 @@ This action allows you to run prettier command simply.
 
 ```yaml
 - name: Prettier
-  uses: tmknom/prettier-action@v0.1.0
+  uses: tmknom/prettier-action@v0.2.0
   with:
     parser: "markdown"
 ```
