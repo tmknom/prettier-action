@@ -55,3 +55,8 @@ jobs:
           if [[ "${OUTCOME}" != "failure" ]]; then
             exit 1
           fi
+      - name: Test to specified Prettier version
+        uses: ./
+        with:
+          parser: "yaml"
+          prettier-version: "2.5.0"
