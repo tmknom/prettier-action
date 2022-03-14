@@ -1,8 +1,6 @@
 name: Lint YAML
 on:
-  push:
-    branches:
-      - lint-yaml
+  workflow_dispatch:
   pull_request:
     paths:
       - "**.yml"
