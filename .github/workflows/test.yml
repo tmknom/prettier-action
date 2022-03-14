@@ -12,6 +12,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  FIXTURES_PATH: ".github/fixtures"
+
 jobs:
   test:
     name: Composite Action
@@ -32,7 +35,7 @@ jobs:
         uses: ./
         with:
           parser: "markdown"
-          paths: "README.md"
+          paths: "${{ env.FIXTURES_PATH }}/valid_md.txt"
       - name: Test valid yaml
         uses: ./
         with:
