@@ -41,3 +41,17 @@ jobs:
         with:
           parser: "yaml"
           paths: "action.yml"
+      - name: Test invalid markdown
+        uses: ./
+        id: invalid-markdown
+        continue-on-error: true
+        with:
+          parser: "markdown"
+          paths: "${{ env.FIXTURES_PATH }}/invalid_md.txt"
+      - name: Verify for test invalid markdown
+        env:
+          OUTCOME: ${{ steps.invalid-markdown.outcome }}
+        run: |
+          if [[ "${OUTCOME}" != "failure" ]]; then
+            exit 1
+          fi
