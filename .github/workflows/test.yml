@@ -23,11 +23,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Test default filepath with markdown
+      - name: Test default paths with markdown
         uses: ./
         with:
           parser: "markdown"
-      - name: Test default filepath with yaml
+      - name: Test default paths with yaml
         uses: ./
         with:
           parser: "yaml"
@@ -35,19 +35,19 @@ jobs:
         uses: ./
         with:
           parser: "markdown"
-          filepath: "${{ env.FIXTURES_PATH }}/valid_md.txt"
+          paths: "${{ env.FIXTURES_PATH }}/valid_md.txt"
       - name: Test valid yaml
         uses: ./
         with:
           parser: "yaml"
-          filepath: "action.yml"
+          paths: "action.yml"
       - name: Test invalid markdown
         uses: ./
         id: invalid-markdown
         continue-on-error: true
         with:
           parser: "markdown"
-          filepath: "${{ env.FIXTURES_PATH }}/invalid_md.txt"
+          paths: "${{ env.FIXTURES_PATH }}/invalid_md.txt"
       - name: Verify for test invalid markdown
         env:
           OUTCOME: ${{ steps.invalid-markdown.outcome }}
