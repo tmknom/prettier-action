@@ -38,6 +38,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Prettier
-        uses: tmknom/prettier-action@v0.2.0
+        uses: tmknom/prettier-action@v0.3.0
         with:
           parser: "markdown"
