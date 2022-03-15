@@ -28,4 +28,4 @@ jobs:
       - name: Display actionlint
         run: ./actionlint --version
       - name: Run actionlint
-        run: ./actionlint -color
+        run: ./actionlint -color -ignore '"permissions" section should not be empty.'
