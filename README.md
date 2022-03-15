@@ -12,11 +12,34 @@ See details: [Prettier documentation](https://prettier.io/docs/en/).
 
 ## Usage
 
+### YAML
+
+```yaml
+- name: Prettier
+  uses: tmknom/prettier-action@v0.2.0
+  with:
+    parser: "yaml"
+```
+
+### Markdown
+
 ```yaml
 - name: Prettier
   uses: tmknom/prettier-action@v0.2.0
   with:
     parser: "markdown"
+```
+
+### Specify all input parameters
+
+```yaml
+- name: Prettier
+  uses: tmknom/prettier-action@v0.2.0
+  with:
+    parser: "yaml"
+    paths: "action.yml .github/workflows/*.yml"
+    prettier-version: "2.5.0"
+    cache: "false"
 ```
 
 ## Inputs
