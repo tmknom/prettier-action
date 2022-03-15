@@ -35,6 +35,10 @@ N/A
 
 N/A
 
+## Permissions
+
+N/A
+
 ## Developer Guide
 
 ### Requirements
