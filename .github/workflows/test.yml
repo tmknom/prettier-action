@@ -35,7 +35,7 @@ jobs:
         uses: ./
         with:
           parser: "markdown"
-          paths: "${{ env.FIXTURES_PATH }}/valid_md.txt"
+          paths: "${{ env.FIXTURES_PATH }}/valid_basic_md.txt"
       - name: Test valid yaml
         uses: ./
         with:
@@ -47,7 +47,7 @@ jobs:
         continue-on-error: true
         with:
           parser: "markdown"
-          paths: "${{ env.FIXTURES_PATH }}/invalid_md.txt"
+          paths: "${{ env.FIXTURES_PATH }}/invalid_basic_md.txt"
       - name: Verify for test invalid markdown
         env:
           OUTCOME: ${{ steps.invalid-markdown.outcome }}
