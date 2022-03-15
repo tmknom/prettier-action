@@ -70,7 +70,7 @@ jobs:
         uses: ./
         with:
           parser: "yaml"
-          paths: "action.yml"
+          paths: "${{ env.FIXTURES }}/valid_basic_yml.txt"
 
   prettier-version:
     name: Prettier version
