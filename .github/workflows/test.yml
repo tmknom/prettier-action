@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  FIXTURES_PATH: ".github/fixtures"
+  FIXTURES: ".github/fixtures"
 
 jobs:
   test:
@@ -35,7 +35,7 @@ jobs:
         uses: ./
         with:
           parser: "markdown"
-          paths: "${{ env.FIXTURES_PATH }}/valid_basic_md.txt"
+          paths: "${{ env.FIXTURES }}/valid_basic_md.txt"
       - name: Test valid yaml
         uses: ./
         with:
@@ -47,7 +47,7 @@ jobs:
         continue-on-error: true
         with:
           parser: "markdown"
-          paths: "${{ env.FIXTURES_PATH }}/invalid_basic_md.txt"
+          paths: "${{ env.FIXTURES }}/invalid_basic_md.txt"
       - name: Verify for test invalid markdown
         env:
           OUTCOME: ${{ steps.invalid-markdown.outcome }}
