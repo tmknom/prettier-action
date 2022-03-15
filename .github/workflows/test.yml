@@ -16,8 +16,8 @@ env:
   FIXTURES: ".github/fixtures"
 
 jobs:
-  test:
-    name: Composite Action
+  minimal:
+    name: Minimal
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -31,16 +31,19 @@ jobs:
         uses: ./
         with:
           parser: "yaml"
+
+  markdown:
+    name: Markdown
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Test valid markdown
         uses: ./
         with:
           parser: "markdown"
           paths: "${{ env.FIXTURES }}/valid_basic_md.txt"
-      - name: Test valid yaml
-        uses: ./
-        with:
-          parser: "yaml"
-          paths: "action.yml"
       - name: Test invalid markdown
         uses: ./
         id: invalid-markdown
@@ -55,11 +58,40 @@ jobs:
           if [[ "${OUTCOME}" != "failure" ]]; then
             exit 1
           fi
+
+  yaml:
+    name: YAML
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Test valid yaml
+        uses: ./
+        with:
+          parser: "yaml"
+          paths: "action.yml"
+
+  prettier-version:
+    name: Prettier version
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Test to specified Prettier version
         uses: ./
         with:
           parser: "yaml"
           prettier-version: "2.5.0"
+
+  paths:
+    name: Multiple paths
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Test multiple paths
         uses: ./
         with:
