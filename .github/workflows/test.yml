@@ -71,6 +71,20 @@ jobs:
         with:
           parser: "yaml"
           paths: "${{ env.FIXTURES }}/valid_basic_yml.txt"
+      - name: Test invalid yaml
+        uses: ./
+        id: invalid-yaml
+        continue-on-error: true
+        with:
+          parser: "yaml"
+          paths: "${{ env.FIXTURES }}/invalid_basic_yml.txt"
+      - name: Verify for test invalid yaml
+        env:
+          OUTCOME: ${{ steps.invalid-yaml.outcome }}
+        run: |
+          if [[ "${OUTCOME}" != "failure" ]]; then
+            exit 1
+          fi
 
   prettier-version:
     name: Prettier version
