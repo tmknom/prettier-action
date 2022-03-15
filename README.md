@@ -47,7 +47,7 @@ See details: [Prettier documentation](https://prettier.io/docs/en/).
 | Name             | Description                                                                   | Default | Required |
 | ---------------- | ----------------------------------------------------------------------------- | ------- | :------: |
 | parser           | Which parser to use.                                                          | n/a     |   yes    |
-| paths            | Paths to check target: `[files/dirs/globs]`.                                  | n/a     |    no    |
+| paths            | Paths to check target files.                                                  | n/a     |    no    |
 | prettier-version | The Prettier version.                                                         | `2.5.1` |    no    |
 | cache            | The flag to enable/disable cache. Specify false, if you wish disabling cache. | `true`  |    no    |
 
@@ -59,7 +59,7 @@ N/A
 
 N/A
 
-## Permissions
+## `GITHUB_TOKEN` Permissions
 
 N/A
 
