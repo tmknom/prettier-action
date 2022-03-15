@@ -1,5 +1,5 @@
 name: Prettier
-description: Format code with Prettier.
+description: Check that files are formatted with Prettier.
 
 inputs:
   parser:
