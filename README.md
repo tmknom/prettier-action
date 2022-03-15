@@ -16,7 +16,7 @@ See details: [Prettier documentation](https://prettier.io/docs/en/).
 
 ```yaml
 - name: Prettier
-  uses: tmknom/prettier-action@v0.2.0
+  uses: tmknom/prettier-action@v0.3.0
   with:
     parser: "yaml"
 ```
@@ -25,7 +25,7 @@ See details: [Prettier documentation](https://prettier.io/docs/en/).
 
 ```yaml
 - name: Prettier
-  uses: tmknom/prettier-action@v0.2.0
+  uses: tmknom/prettier-action@v0.3.0
   with:
     parser: "markdown"
 ```
@@ -34,7 +34,7 @@ See details: [Prettier documentation](https://prettier.io/docs/en/).
 
 ```yaml
 - name: Prettier
-  uses: tmknom/prettier-action@v0.2.0
+  uses: tmknom/prettier-action@v0.3.0
   with:
     parser: "yaml"
     paths: "action.yml .github/workflows/*.yml"
