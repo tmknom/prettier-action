@@ -86,9 +86,9 @@ format-yaml: ## format yaml by prettier
 #
 .PHONY: docs
 docs: ## update documents
-	version=$$(cat VERSION) && \
-	awk -v version=$${version} \
-	    '{sub(/[0-9]+\.[0-9]+\.[0-9]+/, version, $$0); print $$0}' \
+	version="$$(cat VERSION)" && \
+	awk -v action_version="action@v$${version}" \
+	    '{sub(/action@v[0-9]+\.[0-9]+\.[0-9]+/, action_version, $$0); print $$0}' \
 	    README.md > $${TMPDIR}/README.md && \
 	mv $${TMPDIR}/README.md README.md
 
