@@ -1,5 +1,5 @@
 name: Prettier
-description: Format code with Prettier.
+description: Check that files are formatted with Prettier.
 
 inputs:
   parser:
@@ -7,7 +7,7 @@ inputs:
     description: "Which parser to use."
   paths:
     required: false
-    description: "Paths to format target: [file/dir/glob ...]"
+    description: "Paths to check target: [files|dirs|globs]"
   prettier-version:
     default: "2.5.1"
     required: false
