@@ -124,3 +124,18 @@ jobs:
         with:
           parser: "markdown"
           cache: "false"
+
+  all:
+    name: All
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Test to specified all input parameters
+        uses: ./
+        with:
+          parser: "yaml"
+          paths: "action.yml .github/workflows/ ${{ env.FIXTURES }}/valid_*_yml.txt"
+          prettier-version: "2.5.0"
+          cache: "true"
