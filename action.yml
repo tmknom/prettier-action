@@ -12,6 +12,10 @@ inputs:
     default: "2.5.1"
     required: false
     description: "The Prettier version."
+  cache:
+    default: "true"
+    required: false
+    description: "The flag to enable/disable cache. Specify false, if you wish disabling cache."
 
 runs:
   using: composite
@@ -20,6 +24,7 @@ runs:
     - name: Create cache parameter
       shell: bash
       id: cache-param
+      if: ${{ inputs.cache == 'true' }}
       env:
         RUNNER_OS: ${{ runner.os }}
         RUNNER_ARCH: ${{ runner.arch }}
@@ -31,6 +36,7 @@ runs:
 
     - name: Cache
       uses: actions/cache@v2
+      if: ${{ inputs.cache == 'true' }}
       with:
         path: ${{ steps.cache-param.outputs.cache-dir }}
         key: ${{ steps.cache-param.outputs.cache-key }}
