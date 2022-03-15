@@ -31,13 +31,13 @@ CLI_CONFIG_DIR ?= .github
 #
 # Variables to be used by Git and GitHub CLI
 #
-GIT ?= $(shell command -v git)
-GH ?= $(shell command -v gh)
+GIT ?= $(shell \command -v git 2>/dev/null)
+GH ?= $(shell \command -v gh 2>/dev/null)
 
 #
 # Variables to be used by Docker
 #
-DOCKER ?= $(shell command -v docker)
+DOCKER ?= $(shell \command -v docker 2>/dev/null)
 DOCKER_WORK_DIR ?= /work
 DOCKER_RUN_OPTIONS ?=
 DOCKER_RUN_OPTIONS += -it
