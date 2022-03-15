@@ -31,6 +31,10 @@ See details: [Prettier documentation](https://prettier.io/docs/en/).
 
 N/A
 
+## Environment variables
+
+N/A
+
 ## Developer Guide
 
 ### Requirements
