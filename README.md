@@ -27,6 +27,10 @@ See details: [Prettier documentation](https://prettier.io/docs/en/).
 | paths            | Paths to check target: `[files/dirs/globs]`. | n/a     |    no    |
 | prettier-version | The Prettier version.                        | `2.5.1` |    no    |
 
+## Outputs
+
+N/A
+
 ## Developer Guide
 
 ### Requirements
