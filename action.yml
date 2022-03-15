@@ -70,7 +70,8 @@ runs:
         PARSER: ${{ inputs.parser }}
         PATHS: ${{ steps.default-paths.outputs.paths }}
       run: |
-        node_modules/.bin/prettier --parser="${PARSER}" --check "${PATHS}"
+        IFS=$' ' read -a path_array <<< $(printenv PATHS)
+        node_modules/.bin/prettier --parser="${PARSER}" --check "${path_array[@]}"
 
 # https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#branding
 branding:

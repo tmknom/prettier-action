@@ -60,3 +60,8 @@ jobs:
         with:
           parser: "yaml"
           prettier-version: "2.5.0"
+      - name: Test multiple paths
+        uses: ./
+        with:
+          parser: "markdown"
+          paths: "${{ env.FIXTURES }}/valid_basic_md.txt ${{ env.FIXTURES }}/valid_alternative_md.txt"
