@@ -1,4 +1,4 @@
-name: Prettier
+name: Format check with Prettier
 description: Check that files are formatted with Prettier.
 
 inputs:
