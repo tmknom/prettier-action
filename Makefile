@@ -129,8 +129,9 @@ commit:
 	$(GIT) commit -m "Update docs to $${version}"
 
 create-pr:
+	version="v$$(cat VERSION)" && \
 	$(GIT) push origin $$($(GIT) rev-parse --abbrev-ref HEAD) && \
-	$(GH) pr create --fill --web
+	$(GH) pr create --title "Bump up to $${version}" --body "" --web
 
 #
 # Help
