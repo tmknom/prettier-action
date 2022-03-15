@@ -7,7 +7,7 @@ inputs:
     description: "Which parser to use."
   paths:
     required: false
-    description: "Paths to check target: [files|dirs|globs]"
+    description: "Paths to check target files."
   prettier-version:
     default: "2.5.1"
     required: false
