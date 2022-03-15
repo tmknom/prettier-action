@@ -59,7 +59,7 @@ N/A
 
 N/A
 
-## Permissions
+## `GITHUB_TOKEN` Permissions
 
 N/A
 
