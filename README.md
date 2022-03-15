@@ -19,6 +19,26 @@ See details: [Prettier documentation](https://prettier.io/docs/en/).
     parser: "markdown"
 ```
 
+## Inputs
+
+| Name             | Description                                  | Default | Required |
+| ---------------- | -------------------------------------------- | ------- | :------: |
+| parser           | Which parser to use.                         | n/a     |   yes    |
+| paths            | Paths to check target: `[files/dirs/globs]`. | n/a     |    no    |
+| prettier-version | The Prettier version.                        | `2.5.1` |    no    |
+
+## Outputs
+
+N/A
+
+## Environment variables
+
+N/A
+
+## Permissions
+
+N/A
+
 ## Developer Guide
 
 ### Requirements
