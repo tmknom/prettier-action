@@ -1,11 +1,14 @@
 # Prettier for GitHub Actions
 
-Format code with Prettier.
+Check that files are formatted with Prettier.
 
 ## Description
 
-[Prettier](https://github.com/prettier/prettier) is an opinionated code formatter.
-This action allows you to run prettier command simply.
+Prettier is an opinionated code formatter.
+This action allows you to check that files are formatted correctly.
+It supports for Markdown, YAML, and so on.
+
+See details: [Prettier documentation](https://prettier.io/docs/en/).
 
 ## Usage
 
