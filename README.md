@@ -111,7 +111,7 @@ This command perform the following process:
 
 1. Click the edit icon on the right side of the page
 2. Edit the release notes
-3. If you're ready to publicize your release, click "Publish release"
+3. If you're ready to publicize your release, click `Publish release` :rocket:
 
 ## License
 
