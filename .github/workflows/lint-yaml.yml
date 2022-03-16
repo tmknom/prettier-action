@@ -16,28 +16,5 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  yamllint:
-    # use pre-installed yamllint
-    # https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md
-    name: Lint by yamllint
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Display yamllint
-        run: yamllint --version
-      - name: Run yamllint
-        run: yamllint --strict --config-file .yamllint.yml .
-
-  prettier:
-    name: Format by prettier
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Prettier
-        uses: tmknom/prettier-action@v0.3.0
-        with:
-          parser: "yaml"
+  lint-yaml:
+    uses: tmknom/workflows/.github/workflows/lint-yaml.yml@v0
