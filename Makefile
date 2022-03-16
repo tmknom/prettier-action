@@ -26,7 +26,6 @@ SHELL := /bin/bash
 # Variables for the directory path
 #
 ROOT_DIR ?= $(shell $(GIT) rev-parse --show-toplevel)
-CLI_CONFIG_DIR ?= .github
 
 #
 # Variables to be used by Git and GitHub CLI
@@ -59,12 +58,12 @@ lint: lint-yaml lint-markdown ## lint all
 
 .PHONY: lint-yaml
 lint-yaml: ## lint yaml by yamllint and prettier
-	$(SECURE_DOCKER_RUN) yamllint --strict --config-file $(CLI_CONFIG_DIR)/.yamllint.yml .
+	$(SECURE_DOCKER_RUN) yamllint --strict --config-file .yamllint.yml .
 	$(SECURE_DOCKER_RUN) prettier --check --parser=yaml **/*.y*ml
 
 .PHONY: lint-markdown
 lint-markdown: ## lint markdown by markdownlint and prettier
-	$(SECURE_DOCKER_RUN) markdownlint --dot --config $(CLI_CONFIG_DIR)/.markdownlint.yml **/*.md
+	$(SECURE_DOCKER_RUN) markdownlint --dot --config .markdownlint.yml **/*.md
 	$(SECURE_DOCKER_RUN) prettier --check --parser=markdown **/*.md
 
 #
