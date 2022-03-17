@@ -16,16 +16,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  actionlint:
-    name: Lint by actionlint
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Install actionlint
-        run: bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
-      - name: Display actionlint
-        run: ./actionlint --version
-      - name: Run actionlint
-        run: ./actionlint -color -ignore '"permissions" section should not be empty.'
+  lint-action:
+    uses: tmknom/workflows/.github/workflows/lint-action.yml@v0
+    with:
+      actionlint-ignore-options: >
+        "permissions" section should not be empty.
