@@ -18,3 +18,5 @@ concurrency:
 jobs:
   lint-yaml:
     uses: tmknom/workflows/.github/workflows/lint-yaml.yml@v1
+    with:
+      yamllint-config: ".yamllint.yml"
