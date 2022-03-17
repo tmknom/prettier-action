@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   lint-action:
-    uses: tmknom/workflows/.github/workflows/lint-action.yml@v0
+    uses: tmknom/workflows/.github/workflows/lint-action.yml@v1
     with:
       actionlint-ignore-options: >
         "permissions" section should not be empty.
