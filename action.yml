@@ -76,7 +76,7 @@ runs:
         PARSER: ${{ inputs.parser }}
         PATHS: ${{ steps.default-paths.outputs.paths }}
       run: |
-        IFS=$' ' read -ra path_array <<< $(printenv PATHS)
+        IFS=$' ' read -ra path_array <<< "$(printenv PATHS)"
         npx prettier --parser="${PARSER}" --check "${path_array[@]}"
 
 # https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#branding
