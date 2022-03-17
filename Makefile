@@ -99,8 +99,8 @@ release: push-tag create-release ## release
 push-tag:
 	version="v$$(cat VERSION)" && \
 	major_version=$$(echo "$${version%%.*}") && \
-	$(GIT) tag --force "$${version}" && \
-	$(GIT) tag --force "$${major_version}" && \
+	$(GIT) tag --force --message "$${version}" "$${version}" && \
+	$(GIT) tag --force --message "$${version}" "$${major_version}" && \
 	$(GIT) push --force origin "$${version}" && \
 	$(GIT) push --force origin "$${major_version}"
 
