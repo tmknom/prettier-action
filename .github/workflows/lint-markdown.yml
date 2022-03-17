@@ -16,4 +16,4 @@ concurrency:
 
 jobs:
   lint-markdown:
-    uses: tmknom/workflows/.github/workflows/lint-markdown.yml@v0
+    uses: tmknom/workflows/.github/workflows/lint-markdown.yml@v1
