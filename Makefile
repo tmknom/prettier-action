@@ -54,17 +54,17 @@ SECURE_DOCKER_RUN ?= $(DOCKER_RUN) $(DOCKER_RUN_SECURE_OPTIONS)
 # Lint
 #
 .PHONY: lint
-lint: lint-yaml lint-markdown ## lint all
-
-.PHONY: lint-yaml
-lint-yaml: ## lint yaml by yamllint and prettier
-	$(SECURE_DOCKER_RUN) yamllint --strict --config-file .yamllint.yml .
-	$(SECURE_DOCKER_RUN) prettier --check --parser=yaml **/*.y*ml
+lint: lint-markdown lint-yaml ## lint all
 
 .PHONY: lint-markdown
 lint-markdown: ## lint markdown by markdownlint and prettier
 	$(SECURE_DOCKER_RUN) markdownlint --dot --config .markdownlint.yml **/*.md
 	$(SECURE_DOCKER_RUN) prettier --check --parser=markdown **/*.md
+
+.PHONY: lint-yaml
+lint-yaml: ## lint yaml by yamllint and prettier
+	$(SECURE_DOCKER_RUN) yamllint --strict --config-file .yamllint.yml .
+	$(SECURE_DOCKER_RUN) prettier --check --parser=yaml **/*.y*ml
 
 #
 # Format code
