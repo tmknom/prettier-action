@@ -42,18 +42,22 @@ See details: [Prettier documentation](https://prettier.io/docs/en/).
     cache: "false"
 ```
 
+<!-- actdocs start -->
+
 ## Inputs
 
 | Name             | Description                                                                   | Default | Required |
-| ---------------- | ----------------------------------------------------------------------------- | ------- | :------: |
+| :--------------- | :---------------------------------------------------------------------------- | :------ | :------: |
 | parser           | Which parser to use.                                                          | n/a     |   yes    |
+| cache            | The flag to enable/disable cache. Specify false, if you wish disabling cache. | `true`  |    no    |
 | paths            | Paths to check target files.                                                  | n/a     |    no    |
 | prettier-version | The Prettier version.                                                         | `2.5.1` |    no    |
-| cache            | The flag to enable/disable cache. Specify false, if you wish disabling cache. | `true`  |    no    |
 
 ## Outputs
 
 N/A
+
+<!-- actdocs end -->
 
 ## Environment variables
 
